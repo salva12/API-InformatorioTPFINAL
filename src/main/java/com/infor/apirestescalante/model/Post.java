@@ -1,10 +1,12 @@
-/*
+package com.infor.apirestescalante.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.time.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Post {
@@ -34,7 +36,10 @@ public class Post {
 
     private Boolean publicado;
 
-    private LocalDateTime fechaCreacion = LocalDateTime.now();
+    private LocalDate fechaCreacion;
+
+    @OneToMany
+    private List<Comentario> comentarios = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -44,20 +49,20 @@ public class Post {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
-    public User getAuthor() {
-        return author;
+    public User getAutor() {
+        return autor;
     }
 
-    public void setAuthor(User author) {
-        this.author = author;
+    public void setAutor(User autor) {
+        this.autor = autor;
     }
 
     public String getDescripcion() {
@@ -82,10 +87,13 @@ public class Post {
 
 	public void setPublicado(Boolean publicado) {
 		this.publicado = publicado;
-    }
+  }
     
-    public LocalDateTime getFechaCreacion() {
+  public LocalDate getFechaCreacion() {
 		return this.fechaCreacion;
-	}
+  }
+  
+  public void setFechaCreacion() {
+		this.fechaCreacion = LocalDate.now();
+  } 
 }
-*/

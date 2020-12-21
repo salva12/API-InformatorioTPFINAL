@@ -6,13 +6,13 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-
 import java.time.*; // Este paquete contiene LocalDate, LocalTime y LocalDateTime.
-import java.time.format.*;  // Este paquete contiene DateTimeFormatter.
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
-public class User implements Serializable{
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,13 +31,27 @@ public class User implements Serializable{
 
     private String password;
 
-    private LocalDateTime fechaCreacion;
+    private LocalDate fechaCreacion;
 
     private String ciudad;
     private String provincia;
     private String pais;
 
-
+    @OneToMany
+    private List<Post> posts = new ArrayList<>();
+    /*
+    public User(Long id,String nombre, String apellido, String email, String password, LocalDate fechaCreacion,String ciudad, String provincia, String pais){
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+        this.password = password;
+        this.fechaCreacion = fechaCreacion;
+        this.ciudad = ciudad;
+        this.provincia = provincia;
+        this.pais = pais;
+    }
+    */
     public Long getId() {
         return id;
     }
@@ -78,15 +92,14 @@ public class User implements Serializable{
         this.password = password;
     }
 
-    public LocalDateTime getFechaCreacion() {
+    public LocalDate getFechaCreacion() {
         return fechaCreacion;
     }
-
-    public void setFechaCreacion() {
-        LocalDateTime now = LocalDateTime.now();
-        this.fechaCreacion =  now ;
-    }
     
+    public void setFechaCreacion() {
+        this.fechaCreacion=LocalDate.now();
+    }
+
     public String getCiudad() {
         return ciudad;
     }
