@@ -23,24 +23,6 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    /* funcion para cargar la BDD de users
-    public void CargarUsers(){
-        Long id = 1L;
-        LocalDate fecha = LocalDate.now();
-        userRepository.deleteAll();
-        userRepository.save(new User(id, "Eduardo", "Salvio", "edusalvio@gmail.com", "edusal22", fecha, "Resistencia", "Chaco", "Argentina"));
-        id = id +1L;
-        userRepository.save(new User(id,"Juan","Delfino","jdelf@gmail.com","delf15",fecha,"Santa Fe","Santa Fe","Argentina"));
-        id = id +1L;
-        userRepository.save(new User(id,"Carlos","Magno","carlo@gmail.com","carmag",fecha,"Wanda","Misiones","Argentina"));
-        id = id +1L;
-        userRepository.save(new User(id,"Octavio","Lell","octalel@gmail.com","octalel33",fecha,"Santa Fe","Santa Fe","Argentina"));
-        userRepository.findAll().forEach((user) -> {
-            System.out.println("Cargué en la BDD a:" + user.getNombre());
-        });
-    };
-    */
-
     //GET Todos los users
     @GetMapping // ~ /api/user
     public ResponseEntity<?> getUsers() {
@@ -77,29 +59,44 @@ public class UserController {
         return new ResponseEntity<>(usersSinPass, HttpStatus.OK);
     }
 
-    //POST Crear un user
+    //POST Crear un usuario
     @PostMapping // ~ /api/user
     public ResponseEntity<?> createUser(@RequestBody User user) {
         user.setFechaCreacion();
         return new ResponseEntity<>(userRepository.save(user), HttpStatus.CREATED);
     }
 
-    //PUT para modificar un user segun ID
+    //PUT para modificar un usuario segun ID
     @PutMapping("/{userId}")
-    public ResponseEntity<?> editUser(@PathVariable Long userId, @Valid @RequestBody User user) {
+    public ResponseEntity<?> editUser(@PathVariable Long userId, @RequestBody User user) {
         User userEdit = userRepository.getOne(userId);
-        userEdit.setNombre(user.getNombre());
-        userEdit.setApellido(user.getApellido());
-        userEdit.setPassword(user.getPassword());
-        userEdit.setPais(user.getPais());
-        userEdit.setProvincia(user.getProvincia());
-        userEdit.setCiudad(user.getCiudad());
-        userEdit.setEmail(user.getEmail());
+        System.out.println(userEdit);
+        if ((user.getNombre())!= null){
+            userEdit.setNombre(user.getNombre());
+        }   
+        if ((user.getApellido())!= null){
+            userEdit.setApellido(user.getApellido());
+        }
+        if ((user.getPassword())!= null){
+            userEdit.setPassword(user.getPassword());
+        }
+        if ((user.getPais())!= null){
+            userEdit.setPais(user.getPais());
+        }
+        if ((user.getProvincia())!= null){
+            userEdit.setProvincia(user.getProvincia());
+        }
+        if ((user.getCiudad())!= null){
+            userEdit.setCiudad(user.getCiudad());
+        }
+        if ((user.getEmail())!= null){
+            userEdit.setEmail(user.getEmail());
+        }
         userEdit.setFechaCreacion();
         return new ResponseEntity<>(userRepository.save(userEdit), HttpStatus.OK);
     }
 
-    //DELETE Borrar un Post segun el ID
+    //DELETE Borrar un usuario segun el ID
     @DeleteMapping("/{userId}")
     public ResponseEntity<?> deleteUser(@PathVariable Long userId) {
         User userDelete = userRepository.getOne(userId);

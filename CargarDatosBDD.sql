@@ -18,8 +18,8 @@ INSERT INTO `infordb1`.`user_posts` (`user_id`, `posts_id`) VALUES ('7', '12');
 
 #Para cargar algunos comentarios de algunos usuarios
 
-INSERT INTO `infordb1`.`comentario` (`id`, `autor`, `comentario`, `fecha_creacion`, `post`) VALUES ('14', '7', 'jajaja que gracioso!', '2020-12-21', '12');
-INSERT INTO `infordb1`.`comentario` (`id`, `autor`, `comentario`, `fecha_creacion`, `post`) VALUES ('17', '4', 'uhh temaikenn reina!', '2020-12-20', '3');
+INSERT INTO `infordb1`.`comentario` (`id`, `autor`, `comentario`, `fecha_creacion`, `post`) VALUES ('14', 'rombel@gmail.com', 'jajaja que gracioso!', '2020-12-21', '12');
+INSERT INTO `infordb1`.`comentario` (`id`, `autor`, `comentario`, `fecha_creacion`, `post`) VALUES ('17', 'landi@gmail.com', 'uhh temaikenn reina!', '2020-12-20', '3');
 
 #Para cargar relaciones entre los comentarios y los posts
 
