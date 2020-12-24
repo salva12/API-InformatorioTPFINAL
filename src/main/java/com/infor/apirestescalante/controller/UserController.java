@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.time.*; // Este paquete contiene LocalDate, LocalTime y LocalDateTime.
-import java.time.format.*;  // Este paquete contiene DateTimeFormatter.
+
 
 @RestController
 @RequestMapping("/api/user")
@@ -47,7 +47,7 @@ public class UserController {
         return new ResponseEntity<>(usersSinPass, HttpStatus.OK);
     }
 
-       //GET Todos los users con fecha de creación mayor a una fecha dada
+    //GET Todos los users con fecha de creación mayor a una fecha dada
     @GetMapping ("despues")
     public ResponseEntity<?> getUsersDespuesFecha(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fecha) {
         List<User> usersSinPass = new ArrayList<User>();
