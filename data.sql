@@ -8,7 +8,7 @@ INSERT INTO `infordb1`.`user` (`id`, `apellido`, `ciudad`, `email`, `fecha_creac
 
 INSERT INTO `infordb1`.`post` (`id`, `contenido`, `descripcion`, `fecha_creacion`, `publicado`, `titulo`, `autor`) VALUES ('3', 'Gozala, que la vida es una mami gozala, mira que este mundo da mil vueltas, ojala y no llegues a mi puerta por que no te abrire.', 'Cancion', '2020-12-18', TRUE, 'Parse', '2');
 INSERT INTO `infordb1`.`post` (`id`, `contenido`, `descripcion`, `fecha_creacion`, `publicado`, `titulo`, `autor`) VALUES ('8', 'La gratitud es la memoria del corazón.', 'Frase', '2020-12-15', FALSE, 'Gratitud', '4');
-INSERT INTO `infordb1`.`post` (`id`, `contenido`, `descripcion`, `fecha_creacion`, `publicado`, `titulo`, `autor`) VALUES ('12', '— ¿Por qué estás hablando con esas zapatillas? — Porque pone \"converse\"', 'Chiste', '2020-12-20', TRUE, 'Zapas Hablantes', '7');
+INSERT INTO `infordb1`.`post` (`id`, `contenido`, `descripcion`, `fecha_creacion`, `publicado`, `titulo`, `autor`) VALUES ('12', '— ¿Por qué estás hablando con esas zapatillas? — Porque pone converse!', 'Chiste', '2020-12-20', TRUE, 'Zapas Hablantes', '7');
 
 #Para cargar relaciones entre usuarios y posts
 

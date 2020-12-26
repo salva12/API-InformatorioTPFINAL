@@ -39,19 +39,7 @@ public class User {
 
     @OneToMany
     private List<Post> posts = new ArrayList<>();
-    /*
-    public User(Long id,String nombre, String apellido, String email, String password, LocalDate fechaCreacion,String ciudad, String provincia, String pais){
-        this.id = id;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.email = email;
-        this.password = password;
-        this.fechaCreacion = fechaCreacion;
-        this.ciudad = ciudad;
-        this.provincia = provincia;
-        this.pais = pais;
-    }
-    */
+
     public Long getId() {
         return id;
     }

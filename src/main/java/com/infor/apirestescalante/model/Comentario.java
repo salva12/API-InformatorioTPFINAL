@@ -23,7 +23,15 @@ public class Comentario {
     @JsonIgnore
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="post", referencedColumnName = "id")
-    private Post post;
+	private Post post;
+	
+	public Post getPost() {
+        return post;
+    }
+
+    public void setPost(Post post) {
+        this.post = post;
+    }
 
     private String autor;
 
