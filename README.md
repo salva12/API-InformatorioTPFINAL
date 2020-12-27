@@ -1,6 +1,6 @@
 # API-InformatorioTPFINAL
 
-Es una API desarrollada con Spring y Java durante el cursado de Java del Informatorio, de Resistencia Chaco.
+Es una API desarrollada con Spring y Java durante el cursado de Java del Informatorio 2020, de Resistencia Chaco.
 
 Pasos para ejecutarla y probarla:
 
